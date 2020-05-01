@@ -115,13 +115,14 @@ label {
   .col {
     min-width: 550px;
   }
-}
+  nav > ul {
+    display: none;
+  }
+  .hamburger-dropdown {
+    display: block;
+  }
 
-.hamburger-dropdown {
-  display: block;
-}
-
-.hamburger-dropdown > li {
+  .hamburger-dropdown > li {
   background: url(./hamburger.png);
   background-repeat: no-repeat;
   background-size: 50px 50px;
@@ -131,7 +132,7 @@ label {
   cursor: pointer;
 }
 
-.hamburger-dropdown ul {
+.hamburger-dropdown li ul {
   display: none;
   position: absolute;
   top: 50px;
@@ -149,3 +150,17 @@ label {
 .hamburger-dropdown ul li:hover a{
   text-decoration: underline;
 }
+
+.hamburger-dropdown ul li a {
+  display: block;
+}
+
+
+}
+
+.hamburger-dropdown {
+  display: block;
+}
+/* .hamburger-dropdown ul li a {
+  display: none;
+} */
