@@ -1,5 +1,6 @@
 require 'sqlite3'
 require 'singleton'
+require 'byebug'
 
 class PlayDBConnection < SQLite3::Database
   include Singleton
@@ -22,8 +23,8 @@ class Play
       WHERE
         title = ?
       SQL
-      return nil if play.length > 0 
-
+      return nil unless play.length > 0 
+    # debugger
       Play.new(play.first)
   end
   
@@ -144,3 +145,7 @@ class Playwright
   end
 
 end
+
+Play.find_title_by('A Longs Journey')
+
+

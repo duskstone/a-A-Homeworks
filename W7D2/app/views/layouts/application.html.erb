@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>FreshMusicApp</title>
+
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <% if logged_in? %>
+    <input type="button" id="log_in" name="">
+    <% end  %>
+    <%= yield %>
+  </body>
+</html>
+
+#SOLUTION 
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MusicApp</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <h1>Music App</h1>
+    
+    <% if logged_in? %>
+      <form action="<%= session_url%>" method="post">
+
+        <input type="hidden" name="_method" value="delete">
+
+        <%= auth_token %>
+
+        <input type="submit" value="Log Out">
+
+      </form>
+    <% else %>
+      <form action="<%= new_user_url %>" method="get">
+
+        <input type="submit" value="Sign Up">
+
+      </form>
+
+      <form action="<%= new_session_url %>" method="get">
+
+        <input type="submit" value="Log In">
+
+      </form>
+    <% end %>
+
+
+    <% if flash[:errors] %>
+      <% flash[:errors].each do |error| %>
+        <p><%= error %></p>
+      <% end %>
+    <% end %>
+    <%= yield %>
+  </body>
+</html>

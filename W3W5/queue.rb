@@ -5,15 +5,19 @@ class Queue
     end 
 
     def enqueue(el)
-        @queue.unshift(el)
+        @queue.push(el)
+        el
     end
 
     def dequeue
-        @queue.pop
+        @queue.shift
     end
 
     def peek 
         @queue[-1]
     end
 
+    private 
+
+    attr_reader :queue
 end
