@@ -130,7 +130,7 @@ label {
   height: 50px;
   position: relative;
   cursor: pointer;
-}
+  }
 
 .hamburger-dropdown li ul {
   display: none;

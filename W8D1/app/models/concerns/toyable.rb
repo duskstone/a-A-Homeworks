@@ -1,0 +1,13 @@
+moduel Toyable
+
+    extend ActiveRecord::Concern
+
+    included do 
+        has_many :toys, as: :toyable
+    end 
+
+    def recieve_toy(name)
+        self.toys.find_or_create_by(name: name)
+    end 
+
+end
